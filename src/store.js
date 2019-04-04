@@ -1,5 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
+// pathify config
+import pathify from './pathify'
 
 Vue.use(Vuex);
 
@@ -11,5 +13,9 @@ export default new Vuex.Store({
     increment: state => state.count++,
     decrement: state => state.count--
   },
-  actions: {}
+  actions: {
+    increment: ctx => ctx.commit('increment'),
+    decrement: ctx => ctx.commit('decrement')
+  },
+  plugins: [ pathify.plugin ],
 });
